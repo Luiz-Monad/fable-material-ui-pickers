@@ -1,0 +1,16 @@
+type project
+description
+  Fable bindings for MaterialUI-Pickers https://material-ui-pickers.dev/
+projectUrl https://github.com/Luiz-Monad/fable-material-ui-pickers
+licenseUrl https://github.com/Luiz-Monad/fable-material-ui-pickers/blob/master/LICENSE
+iconUrl https://github.com/Luiz-Monad/fable-material-ui-pickers/raw/nuget_icon.png
+authors Luiz Stangarlin
+files
+  *.fs ==> fable/
+  *.fsproj ==> fable/
+dependencies
+  framework: netstandard2.0
+    FSharp.Core >= 4.5.2
+    Fable.Core >= 3.0.0
+    Fable.React >= 5.2.1
+    Fable.MaterialUI >= 4.1.0

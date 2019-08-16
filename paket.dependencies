@@ -1,0 +1,41 @@
+source https://api.nuget.org/v3/index.json
+
+storage: none
+framework: netstandard2.0
+
+nuget FSharp.Core >= 4.5.2
+nuget Fable.Core >= 3.0.0
+nuget Fable.React >= 5.2.1
+nuget Fable.MaterialUI >= 4.1.0
+
+// [ DOCS GROUP ]
+group Docs
+    source https://api.nuget.org/v3/index.json
+
+    framework: netstandard2.0
+
+    storage: none
+    nuget FSharp.Core >= 4.5.2
+    nuget Fable.Core >= 3.0.0
+    nuget Fable.React >= 5.2.1
+    nuget Fable.Elmish.HMR >= 4.0.0
+    nuget Fable.Elmish.React >= 3.0.0
+    nuget Fable.Elmish.Browser >= 3.0.0
+    nuget Fable.Elmish.Debugger >= 3.0.0
+
+// [ FAKE GROUP ]
+group Build
+    source https://api.nuget.org/v3/index.json
+
+    framework: netstandard2.0
+
+    storage: none
+    nuget Fake.DotNet.Cli
+    nuget Fake.IO.FileSystem
+    nuget Fake.Core.Target
+    nuget Fake.DotNet.Paket
+    nuget Fake.DotNet.AssemblyInfoFile
+    nuget Fake.Core.ReleaseNotes
+    nuget Fake.Api.GitHub
+    nuget Fake.JavaScript.Yarn
+    nuget Fake.Tools.Git
