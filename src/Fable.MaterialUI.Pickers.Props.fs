@@ -151,9 +151,9 @@ module Themes =
 [<AutoOpen>]
 module Constants =
     open Fable.Core.JsInterop
-    let dialogWidth = import<int> "DIALOG_WIDTH" "@material-ui-pickers/constants"
-    let dialogWidthWider = import<int> "DIALOG_WIDTH_WIDER" "@material-ui-pickers/constants"
-    let viewHeight = import<int> "VIEW_HEIGHT" "@material-ui-pickers/constants"
+    let dialogWidth = import<int> "DIALOG_WIDTH" "material-ui-pickers/constants"
+    let dialogWidthWider = import<int> "DIALOG_WIDTH_WIDER" "material-ui-pickers/constants"
+    let viewHeight = import<int> "VIEW_HEIGHT" "material-ui-pickers/constants"
 
 [<AutoOpen>]
 module Options =

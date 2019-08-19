@@ -1,5 +1,8 @@
+## New in 1.0.7
+* Changed JS package binding.
+
 ## New in 1.0.6
-* Fix InputComponent type
+* Fix InputComponent type.
 
 ## New in 1.0.5
 * More Manual fixups.
