@@ -384,13 +384,13 @@ module rec Props =
         | OnDismiss of (unit -> unit)
         | OnClear of (unit -> unit)
         | OnSetToday of (unit -> unit)
+        | [<CompiledName "InputComponent">] 
+          InputComponent of FunctionComponent        
         | Wider of bool (*option*)
         | ShowTabs of bool (*option*)
         interface IHTMLProp
 
     module WrapperProp = 
-        let inline InputComponent (props : IHTMLProp seq) =
-            customHtmlAttr "InputComponent" props
         let inline DateInputProps (props : IHTMLProp seq) =
             customHtmlAttr "DateInputProps" props
 
@@ -432,7 +432,7 @@ module rec Props =
     module KeyboardDateInputProp = 
         let inline InputProps (props : IHTMLProp seq) (*option*) = 
             customHtmlAttr "inputProps" props
-        /// Override input component, same as `ChildrenProp.InputProps`
+        /// Props to pass to embedded input component, same as `ChildrenProp.InputProps`
         let inline ChildrenInputProps (props : IHTMLProp seq) (*option*) =
             customHtmlAttr "InputProps" props
         /// Props to pass to keyboard input adornment
@@ -473,7 +473,7 @@ module rec Props =
     module PureDateInputProp = 
         let inline InputProps (props : IHTMLProp seq) (*option*) = 
             customHtmlAttr "inputProps" props
-        /// Override input component, same as `ChildrenProp.InputProps`
+        /// Props to pass to embedded input component, same as `ChildrenProp.InputProps`
         let inline ChildrenInputProps (props : IHTMLProp seq) (*option*) =
             customHtmlAttr "InputProps" props
 
@@ -544,7 +544,7 @@ module rec Props =
         | OnMonthChange of (MaterialUiPickersDate -> SlideDirection -> U2<unit, Promise<unit>>)
         interface IHTMLProp
 
-    module OutterCalendarProp = 
+    module CalendarHeaderProp = 
         let inline LeftArrowButtonProps (props : IHTMLProp seq) (*option*) = 
             customHtmlAttr "leftArrowButtonProps" props
         let inline RightArrowButtonProps (props : IHTMLProp seq) (*option*) =

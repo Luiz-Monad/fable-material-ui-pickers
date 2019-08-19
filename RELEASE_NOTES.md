@@ -1,3 +1,9 @@
+## New in 1.0.5
+* More Manual fixups.
+
+## New in 1.0.4
+* Manual fixups.
+
 ## New in 1.0.3
 * Republish.
 
