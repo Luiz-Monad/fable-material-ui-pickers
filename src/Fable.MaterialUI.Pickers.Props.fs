@@ -385,7 +385,7 @@ module rec Props =
         | OnClear of (unit -> unit)
         | OnSetToday of (unit -> unit)
         | [<CompiledName "InputComponent">] 
-          InputComponent of FunctionComponent        
+          InputComponent of ReactElementType        
         | Wider of bool (*option*)
         | ShowTabs of bool (*option*)
         interface IHTMLProp
