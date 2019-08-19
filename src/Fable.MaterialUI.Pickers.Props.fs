@@ -8,28 +8,7 @@ module Typings =
 
     type DateType = System.DateTime
     type MaterialUiPickersDate = System.DateTime
-
-    type ParsableDate =
-        U4<obj, string, float, DateTime> option
-
-    [<RequireQualifiedAccess; CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
-    module ParsableDate =
-        let ofObjOption v: ParsableDate = v |> Microsoft.FSharp.Core.Option.map U4.Case1
-        let ofObj v: ParsableDate = v |> U4.Case1 |> Some
-        let isObj (v: ParsableDate) = match v with None -> false | Some o -> match o with U4.Case1 _ -> true | _ -> false
-        let asObj (v: ParsableDate) = match v with None -> None | Some o -> match o with U4.Case1 o -> Some o | _ -> None
-        let ofStringOption v: ParsableDate = v |> Microsoft.FSharp.Core.Option.map U4.Case2
-        let ofString v: ParsableDate = v |> U4.Case2 |> Some
-        let isString (v: ParsableDate) = match v with None -> false | Some o -> match o with U4.Case2 _ -> true | _ -> false
-        let asString (v: ParsableDate) = match v with None -> None | Some o -> match o with U4.Case2 o -> Some o | _ -> None
-        let ofFloatOption v: ParsableDate = v |> Microsoft.FSharp.Core.Option.map U4.Case3
-        let ofFloat v: ParsableDate = v |> U4.Case3 |> Some
-        let isFloat (v: ParsableDate) = match v with None -> false | Some o -> match o with U4.Case3 _ -> true | _ -> false
-        let asFloat (v: ParsableDate) = match v with None -> None | Some o -> match o with U4.Case3 o -> Some o | _ -> None
-        let ofDateTimeOption v: ParsableDate = v |> Microsoft.FSharp.Core.Option.map U4.Case4
-        let ofDateTime v: ParsableDate = v |> U4.Case4 |> Some
-        let isDateTime (v: ParsableDate) = match v with None -> false | Some o -> match o with U4.Case4 _ -> true | _ -> false
-        let asDateTime (v: ParsableDate) = match v with None -> None | Some o -> match o with U4.Case4 o -> Some o | _ -> None
+    type ParsableDate = System.DateTime
 
 [<AutoOpen>]
 module rec Interfaces =
@@ -37,235 +16,16 @@ module rec Interfaces =
     type IUtils<'T> = 
         interface end
 
-    type IWithStyles =
-        interface end
-
     type IViewMap =
         interface end
     
-    type IDialogProps = Fable.React.Props.IHTMLProp
-    type ITextFieldProps = Fable.React.Props.IHTMLProp
-    type IBaseTextFieldProps = Fable.React.Props.IHTMLProp
-    type IToolbarProps = Fable.React.Props.IHTMLProp
-    type IButtonProps = Fable.React.Props.IHTMLProp
-    type ITypographyProps = Fable.React.Props.IHTMLProp
-
     type IRefAttributes = Fable.React.Props.IHTMLProp
 
     type PickerView =
         Fable.React.FunctionComponent<IViewMap seq>
 
-    type IIntersect<'T> =
-        interface end
-
-    /// ts2fable exported interfaces
-
-    type IMuiPickersUtilsProviderProps =
-        interface end
-
-    type IBaseDatePickerProps =
-        inherit IOutterCalendarProps
-
-    type IDatePickerViewsProps =
-        inherit IBaseDatePickerProps
-
-    type IDatePickerProps =
-        inherit IWrappedPurePickerProps
-        inherit IDatePickerViewsProps
-
-    type IKeyboardDatePickerProps =
-        inherit IWrappedKeyboardPickerProps
-        inherit IDatePickerViewsProps
-
-    type IBaseDateTimePickerProps =
-        inherit IBaseTimePickerProps
-        inherit IBaseDatePickerProps
-
-    type IDateTimePickerViewsProps =
-        inherit IBaseDateTimePickerProps
-
-    type IDateTimePickerProps =
-        inherit IWrappedPurePickerProps
-        inherit IDateTimePickerViewsProps
-
-    type IKeyboardDateTimePickerProps =
-        inherit IWrappedKeyboardPickerProps
-        inherit IDateTimePickerViewsProps
-
-    type IDateTimePickerTabsProps =
-        interface end
-
-    type IToolbarComponentProps =
-        inherit IBaseDatePickerProps
-        inherit IBaseTimePickerProps
-
-    type IPickerViewProps =
-        inherit IBaseDatePickerProps
-        inherit IBaseTimePickerProps
-
-    type IPickerProps =
-        inherit IPickerViewProps
-
-    type IWrappedKeyboardPickerProps =
-        inherit IDateValidationProps
-        inherit IBaseKeyboardPickerProps
-        inherit IExtendWrapper<IKeyboardDateInputProps>
-        inherit IKeyboardDateInputProps
-
-    type IMakePickerOptions<'T> =
-        interface end
-
-    type IWrappedKeyboardPickerPropsAndT<'T> =
-        inherit IWrappedKeyboardPickerProps
-        inherit IIntersect<'T>
-
-    type IWrappedPurePickerProps =
-        inherit IDateValidationProps
-        inherit IBasePickerProps
-        inherit IExtendWrapper<IPureDateInputProps>
-        inherit IPureDateInputProps
-
-    type IWrappedPurePickerPropsAndT<'T> =
-        inherit IWrappedPurePickerProps
-        inherit IIntersect<'T>
-
-    type IBaseTimePickerProps =
-        interface end
-
-    type ITimePickerViewsProps =
-        inherit IBaseTimePickerProps
-
-    type ITimePickerProps =
-        inherit IWrappedPurePickerProps
-        inherit ITimePickerViewsProps
-
-    type IKeyboardTimePickerProps =
-        inherit IWrappedKeyboardPickerProps
-        inherit ITimePickerViewsProps
-
-    type IBasePickerProps =
-        interface end
-
-    type IExtendMui<'T> = 'T
-
-    type IInlineWrapperProps<'T> =
-        inherit IWrapperProps<'T>
-
-    type IModalWrapperProps<'T> =
-        inherit IWrapperProps<'T>
-        
-    type IStaticWrapperProps =
-        interface end
-
-    type IWrapperProps<'T> =
-        interface end
-
-    type IModalRoot<'T> =
-        inherit IModalWrapperProps<'T>
-
-    type IInlineRoot<'T> =
-        inherit IInlineWrapperProps<'T>
-
-    type IExtendWrapper<'TInput> =
-        inherit IModalRoot<'TInput>
-        inherit IInlineRoot<'TInput>
-
-    type IWrappersProps<'T> =
-        inherit IModalWrapperProps<'T>
-        inherit IInlineWrapperProps<'T>
-
-    type IBaseValidationProps =
-        interface end
-
-    type IDateValidationProps =
-        inherit IBaseValidationProps
-
-    type IKeyboardDateInputProps =
-        inherit IBaseTextFieldProps
-
-    type IModalDialogProps =
-        inherit IDialogProps
-
-    type IModalDialogPropsWithStyles =
-        inherit IModalDialogProps
-        inherit IWithStyles
-
-    type IPickerToolbarProps =
-        inherit IToolbarProps
-
-    type IPureDateInputProps =
-        inherit IBaseTextFieldProps
-
-    type IToolbarButtonProps =
-        inherit IButtonProps
-        inherit IWithStyles
-
-    type IToolbarTextProps =
-        inherit ITypographyProps
-
-    type IToolbarTextStyle = 
-        interface end
-
-    type IWithUtilsProps =
-        interface end
-
-    type IOutterCalendarProps =
-        interface end
-
-    type ICalendarProps =
-        inherit IOutterCalendarProps
-        inherit IWithUtilsProps
-        inherit IWithStyles
-
-    type ICalendarHeaderProps =
-        interface end
-
-    type IDayProps =
-        interface end
-
-    type IDayWrapperProps =
-        interface end
-
-    type ISlideTransitionProps =
-        interface end
-
-    type IClockProps =
-        inherit IWithStyles
-
-    type IClockPropsWithStyles =
-        inherit IClockProps
-        inherit IWithStyles
-
-    type IClockNumberProps =
-        interface end
-
-    type IClockPointerProps =
-        inherit IWithStyles
-
-    type ITimePickerViewProps =
-        inherit IViewMap
-
-    type IMonthProps =
-        interface end
-
-    type IMonthSelectionProps =
-        inherit IViewMap
-
-    type IYearProps =
-        interface end
-
-    type IYearPropsAndReactRefAttributes =
-        inherit IYearProps
-        inherit IRefAttributes
-
-    type IYearSelectionProps =
-        inherit IViewMap
-
-    type IBaseKeyboardPickerProps =
-        inherit IBasePickerProps
-
     type IStateHookOptions =
-        interface end
+        abstract getDefaultFormat: (unit -> string) with get, set
 
 module Themes =
     module Styles =
@@ -398,17 +158,18 @@ module Constants =
 [<AutoOpen>]
 module Options =
     open Fable.React
+    open Fable.React.Props
 
     type MakePickerOption<'T> = 
         | UseOptions of (obj option -> IStateHookOptions)
-        | GetCustomProps of ('T -> obj) option
+        | GetCustomProps of ('T -> 'T) (*option*)
         | [<CompiledName "DefaultToolbarComponent">]
-          DefaultToolbarComponent of ReactElementType<IToolbarComponentProps seq>
-        interface IMakePickerOptions<'T>
+          DefaultToolbarComponent of ReactElementType
+        interface IHTMLProp
 
     type StateHookOption =
         | GetDefaultFormat of (unit -> string)
-        interface IStateHookOptions
+        interface IHTMLProp
 
 [<AutoOpen>]
 module rec Props =
@@ -419,6 +180,9 @@ module rec Props =
     open Fable.React
     open Fable.React.Props
     open Fable.MaterialUI
+
+    let inline private customHtmlAttr key props =
+        HTMLAttr.Custom(key, props |> keyValueList CaseRules.LowerFirst)
 
     type [<StringEnum; RequireQualifiedAccess>] ClockType =
         | Hours
@@ -452,11 +216,11 @@ module rec Props =
         | Left
 
     type MuiPickersUtilsProviderProp = 
-        | Utils of obj option
+        | Utils of obj (*option*)
         | Children of ReactElement
-        | Locale of obj option
-        | LibInstance of obj option
-        interface IMuiPickersUtilsProviderProps
+        | Locale of obj (*option*)
+        | LibInstance of obj (*option*)
+        interface IHTMLProp
 
     type BaseDatePickerProp = 
         /// Min selectable date
@@ -473,14 +237,14 @@ module rec Props =
         | AnimateYearScrolling of bool (*option*)
         /// Callback firing on year change @DateIOType
         | OnYearChange of (MaterialUiPickersDate -> unit) (*option*)
-        interface IBaseDatePickerProps
+        interface IHTMLProp
 
     type DatePickerViewsProp = 
         /// Array of views to show
         | Views of DatePickerView [] (*option*)
         /// Open to DatePicker
         | OpenTo of DatePickerView (*option*)
-        interface IDatePickerViewsProps
+        interface IHTMLProp
 
     type DateTimePickerViewsProp = 
         /// Array of views to show
@@ -493,14 +257,14 @@ module rec Props =
         | DateRangeIcon of ReactElement (*option*)
         /// Time tab icon
         | TimeIcon of ReactElement (*option*)
-        interface IDateTimePickerViewsProps
+        interface IHTMLProp
 
     type DateTimePickerTabsProp = 
         | View of DateTimePickerView
         | OnChange of (DateTimePickerView -> unit)
         | DateRangeIcon of ReactElement (*option*)
         | TimeIcon of ReactElement (*option*)
-        interface IDateTimePickerTabsProps
+        interface IHTMLProp
 
     type ToolbarComponentProp = 
         | Views of PickerView []
@@ -512,38 +276,38 @@ module rec Props =
         | DateRangeIcon of ReactElement (*option*)
         | TimeIcon of ReactElement (*option*)
         | IsLandscape of bool
-        interface IToolbarComponentProps
+        interface IHTMLProp
 
     type PickerViewProp = 
         | Views of PickerView []
         | OpenTo of PickerView
         | DisableToolbar of bool (*option*)
         | [<CompiledName "ToolbarComponent">]
-          ToolbarComponent of ReactElementType<IToolbarComponentProps seq>
+          ToolbarComponent of ReactElementType
         | HideTabs of bool (*option*)
         | DateRangeIcon of ReactElement (*option*)
         | TimeIcon of ReactElement (*option*)
-        interface IPickerViewProps
+        interface IHTMLProp
 
     type PickerProp = 
         | Date of MaterialUiPickersDate
         | Orientation of BasePickerProp (*option*)
         | OnChange of (MaterialUiPickersDate -> bool -> unit)
-        interface IPickerProps
+        interface IHTMLProp
 
     type BaseTimePickerProp = 
         /// 12h/24h view for hour selection clock
         | Ampm of bool (*option*)
         /// Step over minutes
         | MinutesStep of float (*option*)
-        interface IBaseTimePickerProps
+        interface IHTMLProp
 
     type TimePickerViewsProp = 
         /// Array of views to show
         | Views of ClockType [] (*option*)
         /// Open to timepicker
         | OpenTo of ClockType (*option*)
-        interface ITimePickerViewsProps
+        interface IHTMLProp
 
     type BasePickerProp = 
         /// Picker value
@@ -567,7 +331,7 @@ module rec Props =
         /// Callback fired when date is accepted @DateIOType
         | OnAccept of (MaterialUiPickersDate -> unit) (*option*)
         /// Callback fired when new error should be displayed @DateIOType
-        | OnError of (ReactElement -> U2<MaterialUiPickersDate, ParsableDate> -> unit) (*option*)
+        | OnError of (ReactElement -> MaterialUiPickersDate -> unit) (*option*)
         /// On open callback
         | OnOpen of (unit -> unit) (*option*)
         /// On close callback
@@ -580,16 +344,16 @@ module rec Props =
         | Orientation of U2<string, string> (*option*)
         /// Component that will replace default toolbar renderer
         | [<CompiledName "ToolbarComponent">]
-          ToolbarComponent of ReactElementType<IToolbarComponentProps seq> (*option*)
+          ToolbarComponent of ReactElementType (*option*)
         | Variant of WrapperVariant (*option*)
-        interface IBasePickerProps
+        interface IHTMLProp
 
-    type InlineWrapperProp<'T> = 
+    module InlineWrapperProp = 
         /// Popover props passed to material-ui Popover (with variant="inline")
-        | PopoverProps of obj (*option*)
-        interface IInlineWrapperProps<'T>
+        let inline PopoverProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "popoverProps" props
 
-    type ModalWrapperProp<'T> = 
+    type ModalWrapperProp = 
         /// "OK" label message
         | OkLabel of ReactElement (*option*)
         /// "CANCEL" label message
@@ -602,40 +366,45 @@ module rec Props =
         | ShowTodayButton of bool (*option*)
         /// Show clear action in picker dialog
         | Clearable of bool (*option*)
-        /// Props to be passed directly to material-ui Dialog
-        | DialogProps of obj (*option*)
-        interface IModalWrapperProps<'T>
+        interface IHTMLProp
 
-    type WrappersProp<'T> = 
+    module ModalWrapperProp = 
+        /// Props to be passed directly to material-ui Dialog
+        let inline DialogProps (props : IHTMLProp seq) =
+            customHtmlAttr "dialogProps" props
+
+    type WrappersProp = 
         | Variant of WrapperVariant (*option*)
         | Children of ReactElement (*option*)
-        interface IWrappersProps<'T>
+        interface IHTMLProp
 
-    type WrapperProp<'T> = 
+    type WrapperProp = 
         | Open of bool
         | OnAccept of (unit -> unit)
         | OnDismiss of (unit -> unit)
         | OnClear of (unit -> unit)
         | OnSetToday of (unit -> unit)
-        | [<CompiledName "InputComponent">] 
-          InputComponent of FunctionComponent<'T>
-        | [<CompiledName "DateInputProps">] 
-          DateInputProps of 'T
         | Wider of bool (*option*)
         | ShowTabs of bool (*option*)
-        interface IWrapperProps<'T>
+        interface IHTMLProp
+
+    module WrapperProp = 
+        let inline InputComponent (props : IHTMLProp seq) =
+            customHtmlAttr "InputComponent" props
+        let inline DateInputProps (props : IHTMLProp seq) =
+            customHtmlAttr "DateInputProps" props
 
     type BaseValidationProp = 
         /// Message, appearing when date cannot be parsed
         | InvalidDateMessage of ReactElement (*option*)
-        interface IBaseValidationProps
+        interface IHTMLProp
 
     type DateValidationProp = 
         /// Error message, shown if date is less then minimal date
         | MinDateMessage of ReactElement (*option*)
         /// Error message, shown if date is more then maximal date
         | MaxDateMessage of ReactElement (*option*)
-        interface IDateValidationProps
+        interface IHTMLProp
 
     type KeyboardDateInputProp = 
         | Format of string
@@ -643,29 +412,35 @@ module rec Props =
         | OnClick of (unit -> unit) (*option*)
         | ValidationError of ReactElement (*option*)
         | InputValue of string
-        | InputProps of ITextFieldProps seq (*option*)
-        | [<CompiledName "InputProps">] 
-          InnerInputProps of ITextFieldProps seq (*option*)
         /// Override input component
         | [<CompiledName "TextFieldComponent">] 
-          TextFieldComponent of ReactElementType<ITextFieldProps seq> (*option*)
+          TextFieldComponent of ReactElementType (*option*)
         /// Icon displaying for open picker button
         | KeyboardIcon of ReactElement (*option*)
         /// Pass material-ui text field variant down, bypass internal variant prop
-        | InputVariant of ITextFieldProps seq (*option*)
+        | InputVariant of TextFieldVariant (*option*)
         /// Custom mask. Can be used to override generate from format. (e.g. __/__/____ __:__)
         | Mask of string (*option*)
         /// Char string that will be replaced with number (for "_" mask will be "__/__/____")
         | MaskChar of string (*option*)
         /// Refuse values regexp
         | Refuse of RegExpConstructor (*option*)
-        /// Props to pass to keyboard input adornment
-        | InputAdornmentProps of obj (*option*)
-        /// Props to pass to keyboard adornment button
-        | KeyboardButtonProps of obj (*option*)
         /// Custom formatter to be passed into Rifm component
         | RifmFormatter of (string -> string) (*option*)
-        interface IKeyboardDateInputProps
+        interface IHTMLProp
+
+    module KeyboardDateInputProp = 
+        let inline InputProps (props : IHTMLProp seq) (*option*) = 
+            customHtmlAttr "inputProps" props
+        /// Override input component, same as `ChildrenProp.InputProps`
+        let inline ChildrenInputProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "InputProps" props
+        /// Props to pass to keyboard input adornment
+        let inline InputAdornmentProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "inputAdornmentProps" props
+        /// Props to pass to keyboard adornment button
+        let inline KeyboardButtonProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "keyboardButtonProps" props
 
     type ModalDialogProp = 
         | OnAccept of (unit -> unit)
@@ -680,40 +455,44 @@ module rec Props =
         | ShowTodayButton of bool (*option*)
         | ShowTabs of bool (*option*)
         | Wider of bool (*option*)
-        interface IModalDialogProps
+        interface IHTMLProp
 
     type PickerToolbarProp = 
         | IsLandscape of bool
-        interface IPickerToolbarProps
+        interface IHTMLProp
 
     type PureDateInputProp = 
         /// Pass material-ui text field variant down, bypass internal variant prop
-        | InputVariant of ITextFieldProps seq (*option*)
+        | InputVariant of TextFieldVariant (*option*)
         /// Override input component
-        | TextFieldComponent of ReactElementType<ITextFieldProps seq> (*option*)
-        | InputProps of ITextFieldProps seq (*option*)
-        | [<CompiledName "InputProps">] 
-          InnerInputProps of ITextFieldProps seq (*option*)
+        | TextFieldComponent of ReactElementType (*option*)
         | InputValue of string
         | ValidationError of ReactElement (*option*)
-        interface IPureDateInputProps
+        interface IHTMLProp
+
+    module PureDateInputProp = 
+        let inline InputProps (props : IHTMLProp seq) (*option*) = 
+            customHtmlAttr "inputProps" props
+        /// Override input component, same as `ChildrenProp.InputProps`
+        let inline ChildrenInputProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "InputProps" props
 
     type ToolbarButtonProp = 
-        | Variant of (*ITypographyProps*) TypographyVariant
+        | Variant of TypographyVariant
         | Selected of bool
         | Label of string
-        | Align of (*ITypographyProps*) TextAlignOptions (*option*)
+        | Align of TextAlignOptions (*option*)
         | TypographyClassName of string (*option*)
-        interface IToolbarButtonProps
+        interface IHTMLProp
 
     type ToolbarTextProp = 
         | Selected of bool (*option*)
         | Label of string
-        interface IToolbarTextProps
+        interface IHTMLProp
 
     type WithUtilsProp = 
         | Utils of IUtils<MaterialUiPickersDate>
-        interface IWithUtilsProps
+        interface IHTMLProp
 
     type OutterCalendarProp = 
         /// Left arrow icon
@@ -724,17 +503,21 @@ module rec Props =
         | RenderDay of (MaterialUiPickersDate -> MaterialUiPickersDate -> bool -> ReactElement -> ReactElement) (*option*)
         /// Enables keyboard listener for moving between days in calendar
         | AllowKeyboardControl of bool (*option*)
-        /// Props to pass to left arrow button
-        | LeftArrowButtonProps of obj (*option*)
-        /// Props to pass to right arrow button
-        | RightArrowButtonProps of obj (*option*)
         /// Disable specific date @DateIOType
         | ShouldDisableDate of (MaterialUiPickersDate -> bool) (*option*)
         /// Callback firing on month change. Return promise to render spinner till it will not be resolved @DateIOType
         | OnMonthChange of (MaterialUiPickersDate -> U2<unit, Promise<unit>>) (*option*)
         /// Custom loading indicator
         | LoadingIndicator of ReactElement (*option*)
-        interface IOutterCalendarProps
+        interface IHTMLProp
+
+    module OutterCalendarProp = 
+        /// Props to pass to left arrow button
+        let inline LeftArrowButtonProps (props : IHTMLProp seq) (*option*) = 
+            customHtmlAttr "leftArrowButtonProps" props
+        /// Props to pass to right arrow button
+        let inline RightArrowButtonProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "rightArrowButtonProps" props
 
     type CalendarProp = 
         /// Calendar Date @DateIOType
@@ -749,19 +532,23 @@ module rec Props =
         | DisablePast of bool (*option*)
         /// Disable future dates
         | DisableFuture of bool (*option*)
-        interface ICalendarProps
+        interface IHTMLProp
 
     type CalendarHeaderProp = 
         | CurrentMonth of DateType
         | LeftArrowIcon of ReactElement (*option*)
         | RightArrowIcon of ReactElement (*option*)
-        | LeftArrowButtonProps of obj (*option*)
-        | RightArrowButtonProps of obj (*option*)
         | DisablePrevMonth of bool (*option*)
         | DisableNextMonth of bool (*option*)
         | SlideDirection of SlideDirection
         | OnMonthChange of (MaterialUiPickersDate -> SlideDirection -> U2<unit, Promise<unit>>)
-        interface ICalendarHeaderProps
+        interface IHTMLProp
+
+    module OutterCalendarProp = 
+        let inline LeftArrowButtonProps (props : IHTMLProp seq) (*option*) = 
+            customHtmlAttr "leftArrowButtonProps" props
+        let inline RightArrowButtonProps (props : IHTMLProp seq) (*option*) =
+            customHtmlAttr "rightArrowButtonProps" props
 
     type DayProp = 
         /// Day text
@@ -774,7 +561,7 @@ module rec Props =
         | Hidden of bool (*option*)
         /// Selected?
         | Selected of bool (*option*)
-        interface IDayProps
+        interface IHTMLProp
 
     type DayWrapperProp = 
         | Value of obj (*option*)
@@ -782,14 +569,14 @@ module rec Props =
         | DayInCurrentMonth of bool (*option*)
         | Disabled of bool (*option*)
         | OnSelect of (obj option -> unit)
-        interface IDayWrapperProps
+        interface IHTMLProp
 
     type SlideTransitionProp = 
         | TransKey of string
         | ClassName of string (*option*)
         | SlideDirection of SlideDirection
         | Children of ReactElement
-        interface ISlideTransitionProps
+        interface IHTMLProp
 
     type ClockProp = 
         | Type of ClockViewType
@@ -798,21 +585,21 @@ module rec Props =
         | Ampm of bool (*option*)
         | MinutesStep of float (*option*)
         | Children of ReactElement
-        interface IClockProps
+        interface IHTMLProp
 
     type ClockNumberProp = 
         | Index of float
         | Label of string
         | Selected of bool
         | IsInner of bool (*option*)
-        interface IClockNumberProps
+        interface IHTMLProp
 
     type ClockPointerProp = 
         | Value of float
         | HasSelected of bool
         | IsInner of bool
         | Type of ClockViewType
-        interface IClockPointerProps
+        interface IHTMLProp
 
     type TimePickerViewProp = 
         /// TimePicker value
@@ -829,7 +616,7 @@ module rec Props =
         | OnMinutesChange of (MaterialUiPickersDate -> bool -> unit)
         /// On seconds change
         | OnSecondsChange of (MaterialUiPickersDate -> bool -> unit)
-        interface ITimePickerViewProps
+        interface IHTMLProp
 
     type MonthProp = 
         | Children of ReactElement
@@ -837,7 +624,7 @@ module rec Props =
         | OnSelect of (obj option -> unit)
         | Selected of bool (*option*)
         | Value of obj (*option*)
-        interface IMonthProps
+        interface IHTMLProp
 
     type MonthSelectionProp = 
         | Date of MaterialUiPickersDate
@@ -847,7 +634,7 @@ module rec Props =
         | DisablePast of bool (*option*)
         | DisableFuture of bool (*option*)
         | OnMonthChange of (MaterialUiPickersDate -> U2<unit, Promise<unit>>) (*option*)
-        interface IMonthSelectionProps
+        interface IHTMLProp
 
     type YearProp = 
         | Children of ReactElement
@@ -856,7 +643,7 @@ module rec Props =
         | Selected of bool (*option*)
         | Value of obj (*option*)
         | ForwardedRef of Ref<HTMLElement option> (*option*)
-        interface IYearProps
+        interface IHTMLProp
 
     type YearSelectionProp = 
         | Date of MaterialUiPickersDate
@@ -867,14 +654,14 @@ module rec Props =
         | DisableFuture of bool (*option*)
         | AnimateYearScrolling of bool (*option*)
         | OnYearChange of (MaterialUiPickersDate -> unit) (*option*)
-        interface IYearSelectionProps
+        interface IHTMLProp
 
     type BaseKeyboardPickerProp = 
         /// String value for controlling value with pure input string. Overrides value prop
         | InputValue of string (*option*)
         /// Keyboard onChange callback @DateIOType
         | OnChange of (MaterialUiPickersDate option -> string -> unit)
-        interface IBaseKeyboardPickerProps
+        interface IHTMLProp
 
     [<AutoOpen>]
     module OverridesProp =
