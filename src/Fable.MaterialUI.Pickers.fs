@@ -43,9 +43,9 @@ module Components =
 
     module PropTypes =
 
-        let timePickerDefaultProps: IHTMLProp seq = import "timePickerDefaultProps" "material-ui-pickers/prop-types" |> fromObj
-        let datePickerDefaultProps: IHTMLProp seq = import "datePickerDefaultProps" "material-ui-pickers/prop-types" |> fromObj
-        let dateTimePickerDefaultProps: IHTMLProp seq = import "dateTimePickerDefaultProps" "material-ui-pickers/prop-types" |> fromObj 
+        let timePickerDefaultProps: IHTMLProp seq = import "timePickerDefaultProps" "material-ui-pickers/constants/prop-types" |> fromObj
+        let datePickerDefaultProps: IHTMLProp seq = import "datePickerDefaultProps" "material-ui-pickers/constants/prop-types" |> fromObj
+        let dateTimePickerDefaultProps: IHTMLProp seq = import "dateTimePickerDefaultProps" "material-ui-pickers/constants/prop-types" |> fromObj 
 
     module ViewMaps =
 
@@ -68,9 +68,9 @@ module Components =
 
     module Wrappers =
 
-        let inline inlineWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "InlineWrapper" "material-ui-pickers/wrappers" (toObj b) c
-        let inline modalWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "ModalWrapper" "material-ui-pickers/wrappers" (toObj b) c
-        let inline staticWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "StaticWrapper" "material-ui-pickers/wrappers" (toObj b) c
+        let inline inlineWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "InlineWrapper" "material-ui-pickers/wrappers/InlineWrapper" (toObj b) c
+        let inline modalWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "ModalWrapper" "material-ui-pickers/wrappers/ModalWrapper" (toObj b) c
+        let inline staticWrapper (b : IHTMLProp seq) c : ReactElement = ofImport "StaticWrapper" "material-ui-pickers/wrappers/StaticWrapper" (toObj b) c
 
         let inline getWrapperFromVariant () : WrapperVariant -> FunctionComponent<IHTMLProp seq> = import "getWrapperFromVariant" "material-ui-pickers/wrappers/Wrapper"
         let inline variantContext () : IContext<WrapperVariant option> = import "VariantContext" "material-ui-pickers/wrappers/Wrapper"
