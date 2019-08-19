@@ -18,13 +18,13 @@ paket add Fable.MaterialUI.Pickers
 ```
 
 ## NPM
-You also need to install [Material-UI](https://material-ui.com/getting-started/installation/) npm package
+You also need to install [Material-UI-Pickers](https://material-ui-pickers.dev/getting-started/installation) npm package
 ```sh
-npm install @material-ui-pickers
+npm install @material-ui/pickers
 ```
 or
 ```sh
-yarn add @material-ui-pickers
+yarn add @material-ui/pickers
 ```
 
 # Usage
@@ -47,10 +47,6 @@ let view =
         // todo
     ] [ R.str "Hello world!" ]
 ```
-
-## Other
-Since `keyValueList` function is not recursive in Fable 2, there are several properties which have now been replaced with functions, converting a list of DU cases to an object. The usage of those props stays the same, except `Styles` (see above).
-
 # Build
 
 ## Dependencies

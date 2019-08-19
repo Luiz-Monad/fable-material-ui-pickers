@@ -11,8 +11,8 @@ open Fake.Tools.Git
 
 let outputDir = "nuget"
 let release =  ReleaseNotes.load "RELEASE_NOTES.md"
-let gitOwner = "mvsmal"
-let gitRepo = "fable-material-ui"
+let gitOwner = "Luiz-Monad"
+let gitRepo = "fable-material-ui-pickers"
 let paketToolPath = "paket"
 
 let toLines = String.concat "\n"
@@ -78,7 +78,7 @@ Target.create "DocsRun" (fun _ -> Yarn.exec "start" withDocsWorkDir)
 Target.create "DocsPackage" (fun _ -> Yarn.exec "build" withDocsWorkDir)
 
 // Where to push generated documentation
-let githubLink = "https://github.com/mvsmal/fable-material-ui.git"
+let githubLink = "https://github.com/luiz-monad/material-ui-pickers.git"
 let publishBranch = "gh-pages"
 let temp        = "docs/temp"
 let docsOuput = "docs/dist"

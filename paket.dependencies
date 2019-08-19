@@ -22,6 +22,7 @@ group Docs
     nuget Fable.Elmish.React >= 3.0.0
     nuget Fable.Elmish.Browser >= 3.0.0
     nuget Fable.Elmish.Debugger >= 3.0.0
+    nuget Fable.MaterialUI >= 4.1.0
 
 // [ FAKE GROUP ]
 group Build
